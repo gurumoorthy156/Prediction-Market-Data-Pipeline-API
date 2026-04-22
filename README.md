@@ -43,12 +43,14 @@ Each detected event is stored as a feed item with:
 ### 3. REST API
 
 #### Markets
+#### "ticker": "KXMVESPORTSMULTIGAMEEXTENDED-S2026EE3497C5D07-21DF0BB6758",
 
 * `GET /api/markets` → List all markets (with filters)
 * `GET /api/markets/{ticker}` → Market details
 * `GET /api/markets/{ticker}/orderbook` → Order book data
 
 #### Events
+#### "event_ticker": "KXMVESPORTSMULTIGAMEEXTENDED-S20261CA74042109",
 
 * `GET /api/events` → List events
 * `GET /api/events/{event_ticker}` → Event details
@@ -58,12 +60,25 @@ Each detected event is stored as a feed item with:
 * `GET /api/trades` → Recent trades
 
 #### Series
+#### "series_ticker": "KXMVESPORTSMULTIGAMEEXTENDED"
 
 * `GET /api/series/{series_ticker}` → Series info
 
 #### Feed
 
 * `GET /api/feed` → Detected events feed
+
+or use
+
+Open Python shell: python
+
+from app.services.ingestion import fetch_markets, save_markets
+from app.services.detection import detect_changes
+
+data = fetch_markets()
+save_markets(data)
+detect_changes()
+
 
 #### Stats
 
