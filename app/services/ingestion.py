@@ -92,3 +92,11 @@ def get_trades():
 def get_series(series_ticker):
     data = fetch_data(f"/series/{series_ticker}")
     return data
+
+def to_float(value):
+    try:
+        return float(value)
+    except:
+        return 0.0
+
+   
